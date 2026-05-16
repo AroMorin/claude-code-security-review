@@ -1,10 +1,13 @@
 # Custom False Positive Filtering Instructions
 
-The Claude Code Security Reviewer Action supports custom false positive filtering instructions, allowing you to tailor the security analysis to your specific environment and requirements.
+The Claude Code Security Reviewer Action supports custom false positive filtering instructions, allowing you to tailor
+the security analysis to your specific environment and requirements.
 
 ## Overview
 
-By default, the SAST action includes a comprehensive set of exclusions and criteria for filtering out false positives. However, every organization has unique security requirements, technology stacks, and threat models. The `false-positive-filtering-instructions` input allows you to provide your own custom criteria.
+By default, the SAST action includes a comprehensive set of exclusions and criteria for filtering out false positives.
+However, every organization has unique security requirements, technology stacks, and threat models. The
+`false-positive-filtering-instructions` input allows you to provide your own custom criteria.
 
 ## Usage
 
@@ -22,17 +25,21 @@ By default, the SAST action includes a comprehensive set of exclusions and crite
 The file should contain plain text with three main sections:
 
 ### 1. HARD EXCLUSIONS
+
 List patterns that should be automatically excluded from findings.
 
 ### 2. SIGNAL QUALITY CRITERIA
+
 Questions to assess whether a finding represents a real vulnerability.
 
 ### 3. PRECEDENTS
+
 Specific guidance for common security patterns in your environment.
 
 ## Example
 
-See [examples/custom-false-positive-filtering.txt](../examples/custom-false-positive-filtering.txt) for a complete example tailored to a modern cloud-native application.
+See [examples/custom-false-positive-filtering.txt](../examples/custom-false-positive-filtering.txt) for a complete
+example tailored to a modern cloud-native application.
 
 ## Default Instructions
 

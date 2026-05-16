@@ -1,10 +1,13 @@
 # Custom Security Scan Instructions
 
-The Claude Code Security Reviewer Action supports custom security scan instructions, allowing you to add organization-specific vulnerability categories to the security audit.
+The Claude Code Security Reviewer Action supports custom security scan instructions, allowing you to add
+organization-specific vulnerability categories to the security audit.
 
 ## Overview
 
-The default security scan covers common vulnerability categories like SQL injection, XSS, authentication issues, etc. However, organizations often have specific security concerns based on their:
+The default security scan covers common vulnerability categories like SQL injection, XSS, authentication issues, etc.
+However, organizations often have specific security concerns based on their:
+
 - Technology stack (GraphQL, gRPC, specific cloud providers)
 - Compliance requirements (GDPR, HIPAA, PCI DSS)
 - Industry-specific vulnerabilities (financial services, healthcare)
@@ -25,13 +28,16 @@ The `custom-security-scan-instructions` input allows you to extend the security 
 
 ## File Format
 
-The file should contain additional security categories in the same format as the default categories. Each category should:
+The file should contain additional security categories in the same format as the default categories. Each category
+should:
+
 - Start with a descriptive header in bold (using `**Category Name:**`)
 - List specific vulnerabilities or patterns to check for
 - Use clear, actionable descriptions
 
-### Example Structure:
-```
+### Example Structure
+
+```text
 **Category Name:**
 - Specific vulnerability or pattern to check
 - Another specific issue to look for
@@ -45,14 +51,19 @@ The file should contain additional security categories in the same format as the
 ## Examples
 
 ### Industry-Specific Example
-See [examples/organization-specific-scan-instructions.txt](../examples/custom-security-scan-instructions.txt) for an example set of instructions that customize Claude Code to look for industry-specific security weaknesses including:
+
+See [examples/organization-specific-scan-instructions.txt](../examples/custom-security-scan-instructions.txt) for an
+example set of instructions that customize Claude Code to look for industry-specific security weaknesses including:
+
 - Compliance checks (GDPR, HIPAA, PCI DSS)
 - Financial services security
 - E-commerce specific issues
 
 ## How It Works
 
-Your custom instructions are appended to the security audit prompt after the default "Data Exposure" category. This means:
+Your custom instructions are appended to the security audit prompt after the default "Data Exposure" category. This
+means:
+
 1. All default categories are still checked
 2. Your custom categories extend (not replace) the default scan
 3. The same HIGH/MEDIUM/LOW severity guidelines apply
@@ -68,6 +79,7 @@ Your custom instructions are appended to the security audit prompt after the def
 ## Default Categories Reference
 
 The default scan already includes:
+
 - Input Validation (SQL injection, command injection, XXE, etc.)
 - Authentication & Authorization
 - Crypto & Secrets Management
@@ -79,7 +91,8 @@ Your custom categories should complement these, not duplicate them.
 ## Tips for Writing Effective Categories
 
 1. **Technology-Specific**: Add checks for your specific tech stack
-   ```
+
+   ```text
    **GraphQL Security:**
    - Query depth attacks allowing unbounded recursion
    - Field-level authorization bypass
@@ -87,7 +100,8 @@ Your custom categories should complement these, not duplicate them.
    ```
 
 2. **Compliance-Focused**: Add regulatory requirements
-   ```
+
+   ```text
    **GDPR Compliance:**
    - Personal data processing without consent mechanisms
    - Missing data retention limits
@@ -95,7 +109,8 @@ Your custom categories should complement these, not duplicate them.
    ```
 
 3. **Business Logic**: Add domain-specific vulnerabilities
-   ```
+
+   ```text
    **Payment Processing:**
    - Transaction replay vulnerabilities
    - Currency conversion manipulation

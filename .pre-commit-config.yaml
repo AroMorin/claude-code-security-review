@@ -1,0 +1,12 @@
+default_stages: [pre-commit]
+minimum_pre_commit_version: "3.5.0"
+
+repos:
+  - repo: local
+    hooks:
+      - id: require-version-bump
+        name: require SemVer version bump
+        entry: uv run python .pre-commit-hooks/check-version-bump.py
+        language: system
+        pass_filenames: false
+        always_run: true

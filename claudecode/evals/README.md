@@ -1,10 +1,13 @@
 # SAST Evaluation Tool
 
-This directory contains a tool for evaluating the SAST (Static Application Security Testing) tool on individual GitHub pull requests.
+This directory contains a tool for evaluating the SAST (Static Application Security Testing) tool on individual GitHub
+pull requests.
 
 ## Overview
 
-The evaluation tool allows you to run the Claude Code Security Reviewer on any GitHub PR to analyze its security findings. This is useful for:
+The evaluation tool allows you to run the Claude Code Security Reviewer on any GitHub PR to analyze its security
+findings. This is useful for:
+
 - Testing the tool on specific PRs
 - Evaluating performance and accuracy
 - Debugging security analysis issues
@@ -36,6 +39,7 @@ python -m claudecode.evals.run_eval example/repo#123 --verbose
 ## Output
 
 The evaluation generates a JSON file in the output directory with:
+
 - Success/failure status
 - Runtime metrics
 - Security findings count
@@ -46,6 +50,7 @@ Example output file: `pr_example_repo_123.json`
 ## Architecture
 
 The evaluation tool uses git worktrees for efficient repository management:
+
 1. Clones the repository once as a base
 2. Creates lightweight worktrees for each PR evaluation
 3. Automatically handles cleanup of worktrees
